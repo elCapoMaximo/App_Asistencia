@@ -46,6 +46,8 @@ export class LoginPage{
   Login(){
     this.router.navigate(['/home']);
   }
+
+  
  
 
 }

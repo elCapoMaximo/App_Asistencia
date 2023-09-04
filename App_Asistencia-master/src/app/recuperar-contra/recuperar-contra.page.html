@@ -18,23 +18,17 @@
       <ion-card-header>
         <ion-card-title><h1>Duoc <span>UC</span></h1></ion-card-title>
       </ion-card-header>
+
+      <ion-card-content>
+      
+          <ion-item>
+            <ion-input label="Correo:" [(ngModel)]="correo" placeholder="usermail@duocuc.cl"></ion-input>
+          </ion-item>
+          
+          <ion-button (click)="recuperarContrasena()"color="warning">Recuperar</ion-button>
+          <ion-button (click)="Login()" color="warning">Volver</ion-button>
+        
+      </ion-card-content>
     </ion-card>
-     
-    <ion-card-content>
-
-      <ion-item>
-        <ion-input label="Correo:" placeholder="usermail@duocuc.cl"></ion-input>
-      </ion-item>
-    
-
-      <ion-button (click)="Login()"color='warning'>recuperar</ion-button>
-      <ion-button (click)="Login()"color="warning">Volver</ion-button>
-    
-    </ion-card-content>
-  
   </div>
-
 </ion-content>
-
-
-
