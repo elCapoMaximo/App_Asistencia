@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import {Router} from '@angular/router';
+import { AlertController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-login',
@@ -11,18 +13,32 @@ import {Router} from '@angular/router';
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule]
 })
-export class LoginPage implements OnInit {
+export class LoginPage{
+  correo: string = '';
+  contrasena: string = '';
 
-  constructor(private router: Router) { 
-    
+  
+  constructor(private router: Router, private alertController: AlertController) {}
+
+  async iniciarSesion() {
+    if (!this.correo || !this.contrasena) {
+      const alert = await this.alertController.create({
+        header: 'Alerta',
+        message: 'Por favor, complete todos los campos.',
+        buttons: ['OK'],
+      });
+
+      await alert.present();
+    } else {
+      this.router.navigate(['/inico']);
+    }
   }
+
+  
 
   ngOnInit() {
   }
 
-  IniciarSesion(){
-    this.router.navigate(['/inico']);
-  }
 
   RecuperarContra(){
     this.router.navigate(['/recuperar-contra']);

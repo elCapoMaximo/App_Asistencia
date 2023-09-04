@@ -21,14 +21,13 @@
     <ion-card-content>
 
       <ion-item>
-        <ion-input label="Correo:" placeholder="usermail@duocuc.cl"></ion-input>
+        <ion-input label="Correo:" [(ngModel)]="correo" placeholder="usermail@duocuc.cl"></ion-input>
       </ion-item>
       <ion-item>
-
-      <ion-input label="Contraseña:" type="password" placeholder="*********"></ion-input>
+        <ion-input label="Contraseña:" [(ngModel)]="contrasena" placeholder="*********" type="password"></ion-input>
       </ion-item>
 
-      <ion-button (click)="IniciarSesion()"color=warning>Ingresar</ion-button>
+      <ion-button (click)="iniciarSesion()"color=warning>Iniciar Sesión</ion-button>
       <ion-button (click)="Login()" color="warning">Volver</ion-button>
      
      

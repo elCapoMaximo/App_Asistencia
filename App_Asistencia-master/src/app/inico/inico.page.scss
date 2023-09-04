@@ -31,16 +31,25 @@ span{
     text-decoration: none;
 }
 
-ion-button.cerrar-sesion.md.button.button-solid.ion-activatable.ion-focusable.hydrated {
-
-    position: relative;
- 
-    left:87%;
- 
+#container-button{
+    width: 100%;
 }
+
+ion-button.cerrar-sesion.md.button.button-solid.ion-activatable.ion-focusable.hydrated {
+    position: relative;
+    float: right;
+  
+    @media (max-width: 768px) {
+        float: right; // Cambia la posición para pantallas más pequeñas
+    }
+  
+    @media (max-width: 576px) {
+        float: right; // Cambia la posición para pantallas aún más pequeñas
+    }
+  }
 
 ion-toolbar{
     --background: #012C56;
     --color:white;
   }
-  
+
