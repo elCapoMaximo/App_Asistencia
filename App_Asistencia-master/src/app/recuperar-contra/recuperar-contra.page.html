@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Recuperar Contraseña
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Recuperar Contraseña</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title><h1>Duoc <span>UC</span></h1></ion-card-title>
+      </ion-card-header>
+    </ion-card>
+     
+    <ion-card-content>
+
+      <ion-item>
+        <ion-input label="Correo:" placeholder="usermail@duocuc.cl"></ion-input>
+      </ion-item>
+    
+
+      <ion-button (click)="IniciarSesion()"color='warning'>Ingresar</ion-button>
+      <ion-button (click)="Login()"color="warning">Volver</ion-button>
+    
+    </ion-card-content>
+  
+  </div>
+</ion-content>
+
+
+
