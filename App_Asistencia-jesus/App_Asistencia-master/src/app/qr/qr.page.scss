@@ -1,0 +1,30 @@
+.borde {
+    border: 2px solid rgb(0, 0, 0);
+    min-height: 100px;
+    padding: 10px;
+}
+
+// ion-card {
+//     background-color: rgba(42, 38, 38, 0.5); /* Fondo semitransparente */
+//     border: none; /* Elimina el borde si es necesario */
+//     width: 100%; /* Asegura que la tarjeta ocupe todo el ancho de la pantalla */
+//     max-width: 400px; /* Establece un ancho máximo para la tarjeta (ajusta según tus necesidades) */
+//     margin: 0 auto; /* Centra la tarjeta horizontalmente en la pantalla */
+//     border: none; /* Elimina el borde si es necesario */
+// } ion-toolbar{
+
+
+ion-toolbar{
+    --background: #012C56;
+    --color:white;
+}
+  
+
+.center-button {
+    display: flex;
+    justify-content: center;
+    border: 2px solid rgb(0, 0, 0);
+    
+    
+}
+  

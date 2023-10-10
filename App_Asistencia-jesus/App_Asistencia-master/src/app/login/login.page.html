@@ -1,0 +1,63 @@
+<app-header></app-header>
+
+<ion-content [fullscreen]="true">
+  <div>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title color='warning'>Asistencia Duoc UC </ion-card-title>
+      </ion-card-header>
+
+      <div class="d-flex-center">
+
+        <form [formGroup]="form" class="auth-form" (ngSubmit)="submit()" (Keypress.enter)="submit()">
+
+          <app-custon-input
+          autocomplete="email"
+          [control]="form.controls.email"
+          type="email"
+          label="Correo"
+          ></app-custon-input>
+
+          <div class="validators" *ngIf="form.controls.email.errors && form.controls.email.touched">
+
+            <div *ngIf="form.controls.email.errors?.['required']">El correo es requerido</div>
+            <div *ngIf="form.controls.email.errors?.['email']">Ingrese un correo valido</div>
+          </div>
+  
+          <app-custon-input
+          [control]="form.controls.password"
+          type="password"
+          label="Contraseña"
+          ></app-custon-input>
+
+          <div class="validators" *ngIf="form.controls.password.errors && form.controls.password.touched">
+            <div *ngIf="form.controls.password.errors?.['required']">El contraseña es requerido</div>
+          </div>
+
+          <p (click)="recuperar()">¿Olvidate tu contraseña?</p>
+
+          <ion-button  color='warning' expand="block" mode="ios" class="submit" type="submit" [disabled]="form.invalid">
+            Ingresar
+          </ion-button>
+
+          
+  
+        </form>
+
+      </div>
+
+    
+
+      
+
+    </ion-card>
+
+    
+
+  </div>
+</ion-content>
+
+
+
+
+

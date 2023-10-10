@@ -1,0 +1,55 @@
+h1{
+    color:orange;
+}
+  
+span{
+    color:white;
+}
+  
+#container {
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 20%;
+    transform: translateY(-50%);
+}
+
+#container strong {
+    font-size: 20px;
+    line-height: 26px;
+}
+
+#container p {
+    font-size: 16px;
+    line-height: 22px;
+    color: #8c8c8c;
+    margin: 0;
+}
+
+#container a {
+    text-decoration: none;
+}
+
+#container-button{
+    width: 100%;
+}
+
+/*ion-button.cerrar-sesion.md.button.button-solid.ion-activatable.ion-focusable.hydrated {
+    position: relative;
+    float: right;
+  
+    @media (max-width: 768px) {
+        float: right; // Cambia la posición para pantallas más pequeñas
+    }
+  
+    @media (max-width: 576px) {
+        float: right; // Cambia la posición para pantallas aún más pequeñas
+    }
+} */
+
+ion-toolbar{
+    --background: #012C56;
+    --color:white;
+}
+

@@ -1,0 +1,36 @@
+<app-header></app-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">inico</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title><h1>Bienvenido(a)</h1></ion-card-title>
+      </ion-card-header>
+    </ion-card>
+
+    <ion-item>
+      <ion-button color="warning" expand="block" (click)="qr()" >
+        Ir a QR
+        <ion-icon  slot="end" name="qr-code-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+   
+    
+    <ion-item>
+      <ion-button color="warning" expand="block" (click)="Login()">
+        Cerrar sesión
+        <ion-icon slot="end" name="exit-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+    
+  </div>
+
+
+</ion-content>
+
