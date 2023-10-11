@@ -11,6 +11,8 @@
 
         <form [formGroup]="form" class="auth-form" (ngSubmit)="submit()" (Keypress.enter)="submit()">
 
+          <!--email-->
+
           <app-custon-input
           autocomplete="email"
           [control]="form.controls.email"
@@ -23,6 +25,8 @@
             <div *ngIf="form.controls.email.errors?.['required']">El correo es requerido</div>
             <div *ngIf="form.controls.email.errors?.['email']">Ingrese un correo valido</div>
           </div>
+
+          <!--contraseña-->
   
           <app-custon-input
           [control]="form.controls.password"
@@ -38,6 +42,10 @@
 
           <ion-button  color='warning' expand="block" mode="ios" class="submit" type="submit" [disabled]="form.invalid">
             Ingresar
+          </ion-button>
+
+          <ion-button  (click)="register()"color='warning' expand="block" mode="ios" fill="outline">
+            registrate
           </ion-button>
 
           

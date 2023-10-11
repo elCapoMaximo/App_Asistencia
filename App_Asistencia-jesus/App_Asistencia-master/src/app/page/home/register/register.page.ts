@@ -2,39 +2,29 @@ import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, FormsModule, Validators } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import {Router} from '@angular/router';
-import { SharedModule } from '../shared/shared.module';
-import { FirebaseService } from '../services/firebase.service';
+import { FirebaseService } from '../../../services/firebase.service';
 import { User } from 'src/app/models/user.model';
-import { UtilsService } from '../services/utils.service';
-
-
+import { UtilsService } from '../../../services/utils.service';
+import { SharedModule } from '../../../shared/shared.module';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  selector: 'app-register',
+  templateUrl: './register.page.html',
+  styleUrls: ['./register.page.scss'],
   standalone: true,
-  imports: [
-    IonicModule, 
-    CommonModule, 
-    FormsModule,
-    SharedModule]
+  imports: [IonicModule, CommonModule, FormsModule,SharedModule]
 })
-export class LoginPage implements OnInit {
+export class RegisterPage implements OnInit {
 
   form = new FormGroup({
+    uid: new FormControl(''),
     email: new FormControl('',[Validators.required, Validators.email]),
-    password: new FormControl('',[Validators.required])
+    password: new FormControl('',[Validators.required]),
+    name: new FormControl('',[Validators.required, Validators.minLength(4)])
   })
 
   firebaseSvs = inject(FirebaseService);
   utilsSvs = inject(UtilsService);
-
-  constructor(
-    private router: Router,
-
-  ) {}
 
   ngOnInit() {
   }
@@ -45,9 +35,14 @@ export class LoginPage implements OnInit {
       const loading = await this.utilsSvs.loading();
       await loading.present();
 
-      this.firebaseSvs.signIn(this.form.value as User).then(res => {
+      this.firebaseSvs.signUp(this.form.value as User).then(async res => {
 
-        console.log(res);
+        await this.firebaseSvs.updateUser(this.form.value.name);
+
+        let uid = res.user.uid;
+        this.form.controls.uid.setValue(uid);
+
+        this.setUserInfo(uid);
 
       }).catch(error => {
         console.log(error);
@@ -57,7 +52,7 @@ export class LoginPage implements OnInit {
           duration: 2500,
           color: 'primary',
           position: 'middle',
-          icon: 'aletr-circle-out'
+          icon: 'aletr-circle-outline'
 
         })
 
@@ -73,12 +68,14 @@ export class LoginPage implements OnInit {
       const loading = await this.utilsSvs.loading();
       await loading.present();
 
-      let path = 'users/{uid}'
+      let path = 'users/${uid}';
       delete this.form.value.password;
 
-      this.firebaseSvs.setDocument(path, this.form.value).then(res => {
+      this.firebaseSvs.setDocument(path, this.form.value).then(async res => {
 
-        console.log(res);
+        this.utilsSvs.saveInLocalStorage('user',this.form.value);
+        this.utilsSvs.routerLink('/main/home');
+        this.form.reset();
 
       }).catch(error => {
         console.log(error);
@@ -88,7 +85,7 @@ export class LoginPage implements OnInit {
           duration: 2500,
           color: 'primary',
           position: 'middle',
-          icon: 'aletr-circle-out'
+          icon: 'aletr-circle-outline'
 
         })
 
@@ -97,9 +94,5 @@ export class LoginPage implements OnInit {
       })
     }
   }
-
-  recuperar() {  
-    this.router.navigate(['recuperar-contra']);  
-  } 
 
 }

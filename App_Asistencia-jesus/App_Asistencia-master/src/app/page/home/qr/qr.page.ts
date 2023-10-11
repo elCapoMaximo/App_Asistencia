@@ -6,7 +6,7 @@ import { Asistencia } from 'src/app/models/asistencia';
 import jsQR, { QRCode } from 'jsqr';
 import {Router} from '@angular/router';
 import { AlertController } from '@ionic/angular';
-import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from '../../../shared/shared.module';
 
 
 @Component({

@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button *ngIf="backButton" [defaultHref]="backButton"></ion-back-button>
+    </ion-buttons>
     <img src="assets/img/Logo_DuocUC.png" alt="logo duoc"  width="220" height="60" >
   </ion-toolbar>
 </ion-header>
