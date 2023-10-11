@@ -5,7 +5,6 @@ import { IonicModule } from '@ionic/angular';
 import {Router} from '@angular/router';
 import { SharedModule } from '../../../shared/shared.module';
 import { FirebaseService } from '../../../services/firebase.service';
-import { User } from 'src/app/models/user.model';
 import { UtilsService } from '../../../services/utils.service';
 
 @Component({
