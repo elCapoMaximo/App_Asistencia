@@ -4,6 +4,8 @@
   <div class="d-flex-center">
 
     <form [formGroup]="form" class="auth-form" (ngSubmit)="submit()" (Keypress.enter)="submit()">
+
+      <!--email-->
     
       <app-custom-imput 
       autocomplete="email"
@@ -17,6 +19,8 @@
         <div *ngIf="form.controls.email.errors?.['required']">El correo es requerido</div>
         <div *ngIf="form.controls.email.errors?.['email']">Ingrese un correo valido</div>
       </div>
+
+      <!--contraseña-->
   
       <app-custom-imput 
       [control]="form.controls.password"

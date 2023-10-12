@@ -29,8 +29,8 @@ export class LoginPage implements OnInit {
       await loading.present();
 
       this.firebaseSvs.signIn(this.form.value as User).then(res => {
-
-        console.log(res);
+        
+        this.getUserInfo(res.user.uid);
 
       }).catch(error => {
         console.log(error);
@@ -48,4 +48,46 @@ export class LoginPage implements OnInit {
       })
     }
   }
+
+  async getUserInfo(uid: string){
+    if (this.form.valid){
+
+      const loading = await this.utilsSvs.loading();
+      await loading.present();
+
+      let path = `users/${uid}`;
+
+      this.firebaseSvs.getDocument(path).then((user: User) => {
+
+        this.utilsSvs.saveInLocalStorage('user',user);
+        this.utilsSvs.routerLink('inicio/main/home');
+        this.form.reset();
+
+        this.utilsSvs.presentToast({
+          message: `Te damos la bienvenida ${user.name}`,
+          duration: 1500,
+          color: 'primary',
+          position: 'middle',
+          icon: 'person-circle-outline'
+
+        })
+
+      }).catch(error => {
+        console.log(error);
+
+        this.utilsSvs.presentToast({
+          message: error.message,
+          duration: 2500,
+          color: 'primary',
+          position: 'middle',
+          icon: 'aletr-circle-outline'
+
+        })
+
+      }).finally(() => {
+        loading.dismiss();
+      })
+    }
+  }
+
 }

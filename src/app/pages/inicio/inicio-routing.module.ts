@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { InicioPage } from './inicio.page';
+import { NoLoginGuard } from 'src/app/guards/no-login.guard';
+import { LoginGuard } from 'src/app/guards/login.guard';
 
 const routes: Routes = [
   {
@@ -10,7 +12,11 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule), canActivate: [NoLoginGuard]
+  },
+  {
+    path: 'main',
+    loadChildren: () => import('./main/main.module').then( m => m.MainPageModule),canActivate: [LoginGuard]
   }
 ];
 
