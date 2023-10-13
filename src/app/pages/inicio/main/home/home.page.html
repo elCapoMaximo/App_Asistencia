@@ -1,15 +1,10 @@
-<app-header title="inicio"></app-header>
+<app-header title="Asignatura"></app-header>
 
-<ion-content>
-    <ion-list class="padin">
-        <ion-item-sliding class="padin" *ngFor="let p of asignaturas">
-            
-            <img class="img" [src]="p.img"/>
-            <div color="primary" class="asig"> {{p.asignatura}} </div>
-           
-        </ion-item-sliding>
-        
-    </ion-list>
 
-</ion-content>
-
+<ion-card *ngFor="let p of asignaturas">
+    <img alt="Silhouette of mountains" [src]="p.img" />
+    <ion-card-header>
+      <ion-card-title>{{p.asignatura}}</ion-card-title>
+      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+    </ion-card-header>
+</ion-card>
