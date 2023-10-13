@@ -5,21 +5,18 @@ import { CustomImputComponent } from './components/custom-imput/custom-imput.com
 import { LogoComponent } from './components/logo/logo.component';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AddUpdateEstudiantesComponent } from './components/add-update-estudiantes/add-update-estudiantes.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     CustomImputComponent,
-    LogoComponent,
-    AddUpdateEstudiantesComponent
+    LogoComponent
   ],
   exports: [
     HeaderComponent,
     CustomImputComponent,
     ReactiveFormsModule,
-    LogoComponent,
-    AddUpdateEstudiantesComponent
+    LogoComponent
   ],
   imports: [
     CommonModule,

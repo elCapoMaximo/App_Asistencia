@@ -1,11 +1,15 @@
 <app-header title="inicio"></app-header>
 
 <ion-content>
+    <ion-list class="padin">
+        <ion-item-sliding class="padin" *ngFor="let p of asignaturas">
+            
+            <img class="img" [src]="p.img"/>
+            <div color="primary" class="asig"> {{p.asignatura}} </div>
+           
+        </ion-item-sliding>
+        
+    </ion-list>
 
-  <!--nuevo producto-->
-  <ion-fab vertical="botton" horizontal="end" slot="fixed">
-    <ion-fab-button>
-      <ion-icon name="add"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
 </ion-content>
+
