@@ -1,0 +1,26 @@
+<app-header backButton="/inicio/main/home" title="perfil"></app-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      Información del Usuario
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label position="stacked">Nombre: {{user().name}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Correo: {{user().email}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Carrera: {{user().carrera}}</ion-label>
+        </ion-item>
+        <ion-button (click)="signDut()">
+          cerrar sesion
+        </ion-button>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

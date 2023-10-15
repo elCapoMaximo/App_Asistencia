@@ -1,0 +1,11 @@
+<app-header perfilButton="profile"  title="Asignaturas"></app-header>
+
+
+<ion-card *ngFor="let p of asignaturas">
+    <img alt="Silhouette of mountains" [src]="p.img" />
+    <ion-card-header>
+     
+      <ion-card-title>{{p.asignatura}}</ion-card-title>
+      <ion-card-subtitle>Seccion 003D</ion-card-subtitle>
+    </ion-card-header>
+</ion-card>
