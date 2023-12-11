@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+
+      <!--back boton-->
+      <ion-back-button *ngIf="backButton" [defaultHref]="backButton"></ion-back-button>
+
+      
+      <ion-button (click)="dismissModal()" *ngIf="isModal">
+        <ion-icon name="close-circle-outline"></ion-icon>
+      </ion-button>
+
+      <img src="assets/img/Logo_DuocUC.png" alt="logo duoc"  width="220" height="60" >
+      <!--back modal-->
+
+    </ion-buttons>
+    <ion-title> {{title}} </ion-title>
+
+    <ion-buttons *ngIf="perfilButton" slot="end">
+      <ion-button (click)="perfil()">
+        <ion-icon name="person"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons *ngIf="perfilProfesorButton" slot="end">
+      <ion-button (click)="perfilProfesor()">
+        <ion-icon name="person"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+ 
+
+    
+
+    
+  </ion-toolbar>
+</ion-header>
