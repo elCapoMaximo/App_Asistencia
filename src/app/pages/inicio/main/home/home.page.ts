@@ -42,6 +42,10 @@ export class HomePage implements OnInit {
       }
     })
   }
+
+  getAsignatura(){
+    //nada
+  }
  
 
 }
